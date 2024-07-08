@@ -37,9 +37,12 @@
                             <input type="password" class="grow" placeholder="Password" value=""/>
                         </label>
                     </div>
-                    
-                
+
+
                 <button type="submi" class="btn  w-full my-[20px]" >Login</button>
+                <p class="text-center  text-gray-700">Don't have account?
+                    <a href="#" class="text-blue-700">Register</a>
+                </p>
 
         </div>
 

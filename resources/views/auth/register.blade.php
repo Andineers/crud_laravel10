@@ -46,7 +46,7 @@
                             <input type="password" class="grow" placeholder="Password" value=""/>
                         </label>
                     </div>
-                    
+
                     <div class="">
                         <input id="checkbox" class="border border-solid" type="checkbox" class="checkbox" />
                         <label for="checkbox" class="text-gray-700">I agree to all statements include in terms of service </label>
@@ -58,8 +58,10 @@
                     <button type="submit" class="btn  w-full my-[20px]">Register</button>
                 </div>
             </form>
-            <p class="text-center  text-gray-700">Already have an account?</p>
-                <button type="submi" class="btn  w-full my-[20px]" >Login</button>
+            <p class="text-center  text-gray-700">Already have account?
+                <a href="#" class="text-blue-700">Login</a>
+            </p>
+
 
         </div>
 

@@ -25,3 +25,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
 });
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('home', 'home')->name('home');
+});
