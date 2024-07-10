@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\dashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
 });
 
-Route::controller(AuthController::class)->group(function () {
+Route::controller(dashboardController::class)->group(function () {
     Route::get('dashboard', 'dashboard')->name('dashboard');
 });
+
+Route::post('/registerAction', [AuthController::class, 'registerAction'])->name("registerAction");
+Route::post('/loginAction', [AuthController::class, 'loginAction'])->name("loginAction");
