@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\produkController;
+use App\Models\produk;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +17,16 @@ use App\Http\Controllers\dashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
 });
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('login', 'login')->name('login');
+    Route::get('/', 'login')->name('login');
 });
 
 Route::controller(dashboardController::class)->group(function () {
@@ -33,3 +35,8 @@ Route::controller(dashboardController::class)->group(function () {
 
 Route::post('/registerAction', [AuthController::class, 'registerAction'])->name("registerAction");
 Route::post('/loginAction', [AuthController::class, 'loginAction'])->name("loginAction");
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/action-deleteProduk/{id}', [produkController::class, 'destroy'])->name('action-deleteProduk');
+Route::get('/tambahBarang', [produkControllerController::class, 'tambahBarang'])->name('tambahBarang');
+
+

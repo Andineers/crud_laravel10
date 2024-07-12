@@ -43,8 +43,17 @@ class AuthController extends Controller
             return redirect('/dashboard');
         } else {
             Session::flash('error', "Email atau Password salah!");
-            return redirect('login')->withErrors('Email atau Password salah!');
+            return redirect('/')->withErrors('Email atau Password salah!');
         }
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
 }

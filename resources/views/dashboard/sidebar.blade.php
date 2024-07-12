@@ -16,7 +16,19 @@
                 <span class="font-[Poppins] text-sm">Dashboard</span>
             </a>
         </li>
+        <li class="mb-1 group active">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md ">
+                    <i class="ri-logout-box-r-line"></i>
+                
+                    <span class="font-[Poppins] text-sm">Logout</span>
+                    
+                </button>
+            </form>
+        </li>
         <!--end sidebar-->
 
     </ul>
 </div>
+
