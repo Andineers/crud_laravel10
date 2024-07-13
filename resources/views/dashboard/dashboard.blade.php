@@ -29,8 +29,7 @@
 
 
     <div class="flex mt-32 px-8 ml-80 border-solid w-72 h-11">
-        <a href="/tambahBarang" class="font-[Poppins] bg-blue-500  flex items-center gap-2 text-white px-4 py-2 rounded-[20px]">Tambah
-            Barang <img class="w-6  stroke-zinc-100" src="{{ asset('assets/img/icons.svg') }}" alt="item"></a>
+        <a href="/tambahBarang" class="font-[Poppins] bg-blue-500  flex items-center gap-2 text-white px-4 py-2 rounded-[20px] data-toggle="modal" data-target="#insertModal">Tambah Barang <img class="w-6  stroke-zinc-100" src="{{ asset('assets/img/icons.svg') }}" alt="item"></a>
 
     </div>
 
