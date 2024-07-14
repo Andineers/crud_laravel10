@@ -13,9 +13,35 @@ class produkController extends Controller
         Alert::success('Berhasil!', 'Berhasil Menghapus Angkatan!');
         return redirect('dashboard');
     }
-    public function tambah() {
-        $products=produk::all();
-        return view('produkController', ['produk'=>$products]);
-
+    public function tambahBarang(Request $request) {
+       $validate = $request ->validate([
+        'name' => 'required',
+        'jenis' => 'required',
+        'code' => 'required',
+        'stock' => 'required',
+        'harga' => 'required'
+       ]);
+       if ($validate) {
+        transaction::creat($validate);
+        return redirect('/');
+       } else {
+        return redirect('/tambahBarang');
+       }
     }
+
+    public function editBarang(Request $request, $id) {
+        $validate = $request ->validate([
+         'name' => 'required',
+         'jenis' => 'required',
+         'code' => 'required',
+         'stock' => 'required',
+         'harga' => 'required'
+        ]);
+        if ($validate) {
+         transaction::where('id', $id)->update($validate);
+         return redirect('/');
+        } else {
+         return redirect('/');
+        }
+     }
 }
