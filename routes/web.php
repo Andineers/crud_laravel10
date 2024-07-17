@@ -39,5 +39,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/action-deleteProduk/{id}', [produkController::class, 'destroy'])->name('action-deleteProduk');
-Route::get('/tambahBarang', [produkController::class, 'tambahBarang'])->name('tambahBarang');
+Route::get('/tambahBarang', [produkController::class, 'produk'])->name('tambahBarang');
+Route::post('/tambahBarang', [produkController::class, 'tambahBarang'])->name('tambah');
+
+Route::get('/editBarang', [produkController::class, 'produk'])->name('editBarang');
+Route::post('/editBarang', [produkController::class, 'editBarang'])->name('edit');
 

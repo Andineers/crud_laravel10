@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\produk;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -21,13 +22,20 @@ class produkController extends Controller
         'stock' => 'required',
         'harga' => 'required'
        ]);
+       dd($validate);
        if ($validate) {
-        transaction::creat($validate);
+        produk::create($validate);
         return redirect('/');
        } else {
         return redirect('/tambahBarang');
        }
     }
+
+    public function produk() {
+        return view('dashboard.tambahBarang');
+    }
+
+
 
     public function editBarang(Request $request, $id) {
         $validate = $request ->validate([
@@ -38,10 +46,12 @@ class produkController extends Controller
          'harga' => 'required'
         ]);
         if ($validate) {
-         transaction::where('id', $id)->update($validate);
+         produk::where('id', $id)->update($validate);
          return redirect('/');
         } else {
-         return redirect('/');
+         return redirect('/editBarang');
         }
      }
+
+
 }
