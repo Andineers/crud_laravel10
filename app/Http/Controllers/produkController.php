@@ -15,17 +15,17 @@ class produkController extends Controller
         return redirect('dashboard');
     }
     public function tambahBarang(Request $request) {
-       $validate = $request ->validate([
+       $validate = $request->validate([
         'name' => 'required',
         'jenis' => 'required',
         'code' => 'required',
         'stock' => 'required',
         'harga' => 'required'
        ]);
-       dd($validate);
+
        if ($validate) {
         produk::create($validate);
-        return redirect('/');
+        return redirect('/dashboard');
        } else {
         return redirect('/tambahBarang');
        }
@@ -52,6 +52,10 @@ class produkController extends Controller
          return redirect('/editBarang');
         }
      }
+     public function produkEdit($id) {
+        $produk = produk::where('id', $id)->get();
+        return view('dashboard.editBarang', ['produk'=>$produk]);
+    }
 
 
 }

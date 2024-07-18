@@ -42,6 +42,6 @@ Route::get('/action-deleteProduk/{id}', [produkController::class, 'destroy'])->n
 Route::get('/tambahBarang', [produkController::class, 'produk'])->name('tambahBarang');
 Route::post('/tambahBarang', [produkController::class, 'tambahBarang'])->name('tambah');
 
-Route::get('/editBarang', [produkController::class, 'produk'])->name('editBarang');
-Route::post('/editBarang', [produkController::class, 'editBarang'])->name('edit');
+Route::get('/editBarang/{id}', [produkController::class, 'produkEdit'])->name('editBarang');
+Route::post('/editBarang/{id}', [produkController::class, 'editBarang'])->name('edit');
 

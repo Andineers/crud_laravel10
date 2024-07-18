@@ -45,8 +45,8 @@
                     <tr>
                         <th class="p-3">No</th>
                         <th class="p-3">Nama Barang</th>
-                        <th class="p-3">Jenis Barang</th>
                         <th class="p-3">Code Barang</th>
+                        <th class="p-3">Jenis Barang</th>
                         <th class="p-3">Stock Barang</th>
                         <th class="p-3">Harga</th>
                         <th class="p-3">Action</th>
@@ -58,11 +58,11 @@
                         <tr>
                             <td class="p-3">{{ $index + 1 }}</td>
                             <td class="p-3">{{ $item->name }}</td>
-                            <td class="p-3">{{ $item->jenis }}</td>
                             <td class="p-3">{{ $item->code }}</td>
+                            <td class="p-3">{{ $item->jenis }}</td>
                             <td class="p-3">{{ $item->stock }}</td>
                             <td class="p-3">{{ $item->harga }}</td>
-                            <td class="p-3"><button>edit</button>
+                            <td class="p-3"><a href="{{ route('editBarang', $item->id) }}">edit</a>
                                 <button class="delete" data-id="{{ $item->id }}">delete</button>
                             </td>
                         </tr>

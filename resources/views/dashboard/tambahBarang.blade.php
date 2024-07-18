@@ -16,77 +16,73 @@
 
 
 <body>
-    <h1>cobaan</h1>
+
     <!-- Button Kembali -->
     <div class="mb-4">
-        <button
-            class="bg-gray-500-500 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none font-[Poppins]">
-            Kembali
-        </button>
+        <button class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 m-10 duration-200 font-[Poppins]"
+            className="btn">Kembali</button>
     </div>
 
     <!-- Table Tambah Barang -->
     <form method="POST" action="{{ route('tambah') }}">
         @csrf
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <table class="min-w-full leading-normal">
-                <thead>
-                    <tr>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider font-[Poppins]">
-                            Nama Barang
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider font-[Poppins]">
-                            Jenis Barang
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider font-[Poppins]">
-                            Stok Barang
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider font-[Poppins]">
-                            Harga
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <input name="name" type="text"
-                                class="w-full px-2 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Nama Barang">
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <input name="jenis" type="text"
-                                class="w-full px-2 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Jenis Barang">
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <input name="stock" type="number"
-                                class="w-full px-2 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Stok Barang">
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <input name="harga" type="number"
-                                class="w-full px-2 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Harga">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <form>
+                <div class="mb-4">
+                    <label class="block font-[Poppins] text-gray-700 text-sm font-bold mb-2" for="namaBarang">
+                        Nama Barang
+                    </label>
+                    <input type="text" id="namaBarang" name="name"
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Nama Barang">
+                </div>
+                <div class="mb-4">
+                    <label class="block font-[Poppins] text-gray-700 text-sm font-bold mb-2" for="codeBarang">
+                        Code Barang
+                    </label>
+                    <input type="text" id="codeBarang" name="code"
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Code Barang">
+                </div>
+                <div class="mb-4">
+                    <label class="block font-[Poppins] text-gray-700 text-sm font-bold mb-2" for="jenisBarang">
+                        Jenis Barang
+                    </label>
+                    <input type="text" id="jenisBarang" name="jenis"
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Jenis Barang">
+                </div>
+                <div class="mb-4">
+                    <label class="block font-[Poppins] text-gray-700 text-sm font-bold mb-2" for="stokBarang">
+                        Stok Barang
+                    </label>
+                    <input type="number" id="stokBarang" name="stock"
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Stok Barang">
+                </div>
+                <div class="mb-4">
+                    <label class="block font-[Poppins] text-gray-700 text-sm font-bold mb-2" for="namaBarang">
+                        Harga
+                    </label>
+                    <input type="text" id="namaBarang" name="harga"
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Harga">
+                </div>
+
+                <!-- Buttons Cancel and Save -->
+                <div class="flex justify-end mt-4">
+                    <button type="button"
+                        class="bg-red-500 font-[Poppins] text-white px-4 py-2 mr-2 rounded hover:bg-red-600 focus:outline-none">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="bg-blue-500 font-[Poppins] text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">
+                        Save
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <!-- Buttons Cancel and Save -->
-        <div class="flex justify-end mt-4">
-            <button
-                class="bg-red-500 font-[Poppins] text-white px-4 py-2 mr-2 rounded hover:bg-red-600 focus:outline-none">
-                Cancel
-            </button>
-            <button type="submit"
-                class="bg-blue-500 font-[Poppins] text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none">
-                Save
-            </button>
         </div>
     </form>
 
