@@ -38,24 +38,22 @@ class produkController extends Controller
 
 
     public function editBarang(Request $request, $id) {
-        $validate = $request ->validate([
-         'name' => 'required',
-         'jenis' => 'required',
-         'code' => 'required',
-         'stock' => 'required',
-         'harga' => 'required'
+        $validate = $request->validate([
+            'name' => 'required',
+            'jenis' => 'required',
+            'code' => 'required',
+            'stock' => 'required',
+            'harga' => 'required'
         ]);
-        if ($validate) {
-         produk::where('id', $id)->update($validate);
-         return redirect('/');
-        } else {
-         return redirect('/editBarang');
-        }
-     }
-     public function produkEdit($id) {
-        $produk = produk::where('id', $id)->get();
-        return view('dashboard.editBarang', ['produk'=>$produk]);
+        produk::where('id', $id)->update($validate);
+        return redirect()->route('dashboard');
     }
 
-
+    public function produkEdit($id) {
+        $produk = produk::findOrFail($id);
+        return view('dashboard.editBarang', ['produk' => $produk]);
+    }
 }
+
+
+

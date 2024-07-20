@@ -18,9 +18,11 @@
 <body>
 
     <!-- Button Kembali -->
-    <div class="mb-4">
-        <button class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 m-10 duration-200 font-[Poppins]"
-            className="btn">Kembali</button>
+    <div class="mb-4 mt-10">
+        <a href="{{ route('dashboard') }}"
+            class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 m-10 duration-200 font-[Poppins]">
+            Kembali
+        </a>
     </div>
 
     <!-- Table Tambah Barang -->

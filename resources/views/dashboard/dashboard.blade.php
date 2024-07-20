@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
 
@@ -28,7 +29,7 @@
     </div>
 
 
-    <div class="flex mt-32 px-8 ml-80 border-solid w-72 h-11">
+    <div class="flex mt-24 px-8 ml-80 border-solid w-72 h-11">
         <a href="{{ route('tambahBarang') }}"
             class="font-[Poppins] bg-blue-500  flex items-center gap-2 text-white px-4 py-2 rounded-[20px] data-toggle="modal"
             data-target="#insertModal">Tambah Barang <img class="w-6  stroke-zinc-100"
@@ -39,38 +40,42 @@
 
     <div class="w-full m-6 px-10 flex justify-center ">
 
-        <div class="shadow-md w-[50%] rounded-md overflow-x-auto ml-48">
-            <table class="w-full">
-                <thead class="p-3 bg-gray-50 ">
+        <div class="shadow-md w-[600] rounded-md overflow-x-auto ml-[200px]">
+            <table class="min-w-full bg-white border">
+                <thead class="bg-gray-400">
                     <tr>
-                        <th class="p-3">No</th>
-                        <th class="p-3">Nama Barang</th>
-                        <th class="p-3">Code Barang</th>
-                        <th class="p-3">Jenis Barang</th>
-                        <th class="p-3">Stock Barang</th>
-                        <th class="p-3">Harga</th>
-                        <th class="p-3">Action</th>
+                        <th class="px-6 py-3 text-left">No</th>
+                        <th class="px-6 py-3 text-left">Nama Barang</th>
+                        <th class="px-6 py-3 text-left">Code Barang</th>
+                        <th class="px-6 py-3 text-left">Jenis Barang</th>
+                        <th class="px-6 py-3 text-left">Stock Barang</th>
+                        <th class="px-6 py-3 text-left">Harga</th>
+                        <th class="px-6 py-3 text-left">Action</th>
                     </tr>
-
                 </thead>
                 <tbody>
                     @foreach ($produk as $index => $item)
-                        <tr>
-                            <td class="p-3">{{ $index + 1 }}</td>
-                            <td class="p-3">{{ $item->name }}</td>
-                            <td class="p-3">{{ $item->code }}</td>
-                            <td class="p-3">{{ $item->jenis }}</td>
-                            <td class="p-3">{{ $item->stock }}</td>
-                            <td class="p-3">{{ $item->harga }}</td>
-                            <td class="p-3"><a href="{{ route('editBarang', $item->id) }}">edit</a>
-                                <button class="delete" data-id="{{ $item->id }}">delete</button>
+                        <tr class="{{ $loop->odd ? 'bg-white' : 'bg-gray-100' }}">
+                            <td class="px-6 py-3 text-center">{{ $index + 1 }}</td>
+                            <td class="px-6 py-3 text-left">{{ $item->name }}</td>
+                            <td class="px-6 py-3 text-center">{{ $item->code }}</td>
+                            <td class="px-6 py-3 text-left">{{ $item->jenis }}</td>
+                            <td class="px-6 py-3 text-center">{{ $item->stock }}</td>
+                            <td class="px-6 py-3 text-right">{{ $item->harga }}</td>
+                            <td class="px-6 py-3 text-left">
+                                <a href="{{ route('editBarang', $item->id) }}" class="text-blue-500">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="#" class="text-red-500 ml-4">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
-
             </table>
         </div>
+
     </div>
 
     <script>
