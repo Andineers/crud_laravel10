@@ -45,6 +45,8 @@ Route::post('/tambahBarang', [produkController::class, 'tambahBarang'])->name('t
 Route::get('/editBarang/{id}', [produkController::class, 'produkEdit'])->name('editBarang');
 Route::post('/editBarang/{id}', [produkController::class, 'editBarang'])->name('edit');
 
+Route::get('/dashboard', [produkController::class, 'produk'])->name('dashboard');
+
 
 
 // Route::get('/search', [DashboardController::class, 'search'])->name('search');
