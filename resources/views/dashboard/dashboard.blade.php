@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/app.css')
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -27,11 +28,11 @@
 
     <div class="flex mt-24 px-8 ml-80 border-solid w-72 h-11">
         <a href="{{ route('tambahBarang') }}"
-            class="font-[Poppins] bg-blue-500 flex items-center gap-2 text-white px-4 py-2 rounded-[20px]"
-            data-toggle="modal" data-target="#insertModal">
+            class="font-[Poppins] bg-blue-500 flex items-center gap-2 text-white px-4 py-2 rounded-[20px]">
             Tambah Barang
             <img class="w-6 stroke-zinc-100" src="{{ asset('assets/img/icons.svg') }}" alt="item">
         </a>
+
     </div>
 
     <div class="w-full m-6 px-10 flex justify-center ">
@@ -103,7 +104,37 @@
                         }
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location = `/${url}/${id}`;
+                            fetch(`/action-deleteProduk/${id}`, {
+                                method: 'DELETE',
+                                headers: {
+                                    'X-CSRF-TOKEN': document.querySelector(
+                                        'meta[name="csrf-token"]').getAttribute(
+                                        'content')
+                                }
+                            }).then(response => {
+                                if (response.ok) {
+                                    Swal.fire(
+                                        'Terhapus!',
+                                        'Data berhasil dihapus.',
+                                        'success'
+                                    ).then(() => {
+                                        window.location.href =
+                                            "{{ route('dashboard') }}";
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        'Gagal!',
+                                        'Terjadi kesalahan saat menghapus data.',
+                                        'error'
+                                    );
+                                }
+                            }).catch(error => {
+                                Swal.fire(
+                                    'Gagal!',
+                                    'Terjadi kesalahan saat menghapus data.',
+                                    'error'
+                                );
+                            });
                         }
                     });
                 });
@@ -111,6 +142,8 @@
         }
         swalDel('.delete', 'data-name', 'destroy');
     </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('dashboard.sidebar')
 </body>

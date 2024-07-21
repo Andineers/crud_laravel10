@@ -9,10 +9,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 class produkController extends Controller
 {
     public function destroy($id) {
-        produk::where('id', $id)->delete();
-        Alert::success('Berhasil!', 'Berhasil Menghapus Produk!');
-        return redirect()->route('dashboard');
+        $produk = Produk::findOrFail($id);
+        $produk->delete();
+        return response()->json(['success' => 'Produk berhasil dihapus']);
     }
+
 
     public function tambahBarang(Request $request) {
         $validate = $request->validate([
@@ -31,8 +32,10 @@ class produkController extends Controller
         }
     }
 
+
+
     public function produk() {
-        $produk = produk::paginate(5); 
+        $produk = produk::paginate(5);
         return view('dashboard.dashboard', ['produk' => $produk]);
     }
 
