@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class dashboardController extends Controller
 {
     public function dashboard() {
-        $products=produk::all();
-        return view('dashboard.dashboard', ['produk'=>$products]);
+        $produk = produk::paginate(1);
+        return view('dashboard.dashboard', ['produk' => $produk]);
 
     }
 

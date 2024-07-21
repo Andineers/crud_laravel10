@@ -33,6 +33,7 @@
             <img class="w-6 stroke-zinc-100" src="{{ asset('assets/img/icons.svg') }}" alt="item">
         </a>
 
+
     </div>
 
     <div class="w-full m-6 px-10 flex justify-center ">

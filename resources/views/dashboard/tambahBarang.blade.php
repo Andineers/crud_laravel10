@@ -19,7 +19,7 @@
     <!-- Button Kembali -->
     <div class="mb-4 mt-10">
         <a href="{{ route('dashboard') }}"
-            class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 m-10 duration-200 font-[Poppins]">
+            class="bg-gray-500 font-[Poppins] text-white px-4 py-2 m-10 rounded hover:bg-gray-600 focus:outline-none">
             Kembali
         </a>
     </div>

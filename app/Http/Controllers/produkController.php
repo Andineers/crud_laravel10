@@ -35,8 +35,9 @@ class produkController extends Controller
 
 
     public function produk() {
-        $produk = produk::paginate(5);
-        return view('dashboard.dashboard', ['produk' => $produk]);
+
+        return view('dashboard.tambahBarang');
+
     }
 
     public function editBarang(Request $request, $id) {

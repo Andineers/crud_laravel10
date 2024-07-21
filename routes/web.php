@@ -29,9 +29,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'login')->name('login');
 });
 
-Route::controller(dashboardController::class)->group(function () {
-    Route::get('dashboard', 'dashboard')->name('dashboard');
-});
+
 
 Route::post('/registerAction', [AuthController::class, 'registerAction'])->name("registerAction");
 Route::post('/loginAction', [AuthController::class, 'loginAction'])->name("loginAction");
@@ -44,10 +42,11 @@ Route::get('/tambahBarang', [produkController::class, 'produk'])->name('tambahBa
 Route::post('/tambahBarang', [produkController::class, 'tambahBarang'])->name('tambah');
 
 
+
 Route::get('/editBarang/{id}', [produkController::class, 'produkEdit'])->name('editBarang');
 Route::post('/editBarang/{id}', [produkController::class, 'editBarang'])->name('edit');
 
-Route::get('/dashboard', [produkController::class, 'produk'])->name('dashboard');
+Route::get('/', [dashboardController::class, 'dashboard'])->name('dashboard');
 
 
 
